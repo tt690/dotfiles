@@ -1,0 +1,223 @@
+* {
+  color: white;
+  font-family: "JetBrainsMono Nerd Font", "Nerd Font", monospace;
+  font-size: 13px;
+  padding: 0px;
+}
+
+window#waybar {
+  border: none;
+  /* background: rgba(21, 23, 32, 0.588); */
+  background: none;
+}
+
+#custom-workspace-1,
+#custom-workspace-2,
+#custom-workspace-3,
+#custom-workspace-4,
+#custom-workspace-5,
+#custom-workspace-6,
+#custom-workspace-7,
+#custom-workspace-8,
+#custom-workspace-9 {
+  padding: 0px 12px;
+  margin: 5px 0px;
+  color: #cfcfcf;
+  background-color: #292d35;
+  /* border-left: 2px #fab387 solid;
+  border-right: 2px #fab387 solid;
+  border-radius: 3px; */
+  font-size: 16px;
+}
+
+#custom-workspace-1 {
+  border-left: 2px solid #fab387;
+  border-radius: 3px 0px 0px 3px;
+}
+
+#custom-workspace-9 {
+  border-right: 2px solid #fab387;
+  border-radius: 0px 3px 3px 0px;
+}
+
+#custom-workspace-1:hover,
+#custom-workspace-2:hover,
+#custom-workspace-3:hover,
+#custom-workspace-4:hover,
+#custom-workspace-5:hover,
+#custom-workspace-6:hover,
+#custom-workspace-7:hover,
+#custom-workspace-8:hover,
+#custom-workspace-9:hover {
+  color: #fab387;
+  background-color: #454b56;
+  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+#bluetooth,
+#clock,
+#custom-mediaplayer,
+#custom-mediaplayer-fwd,
+#custom-mediaplayer-rewind,
+#network,
+#custom-profile,
+#custom-battery,
+#custom-power,
+#custom-volume,
+#custom-brightness,
+#custom-notification,
+#custom-keyboard-light {
+  padding: 3px 6px;
+  margin: 5px 5px;
+  background-color: #292d35;
+  color: #fab387;
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  border-radius: 3px;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
+
+#custom-power,
+#custom-keyboard-light,
+#network,
+#power-profiles-daemon,
+#bluetooth,
+#custom-notification,
+#clock {
+  font-size: 14px;
+}
+
+#custom-power {
+  padding: 3px 10px 3px 8px;
+}
+
+#network {
+  padding: 3px 5px 3px 7px;
+}
+
+/* Color logic for mediaplayer */
+#custom-mediaplayer {
+  padding-left: 4px;
+  padding-right: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  color: #fab387;
+}
+
+#custom-mediaplayer-fwd {
+  font-size: 16px;
+  margin-left: 0px;
+  padding-left: 5px;
+  border-left: none;
+  color: #fab387;
+}
+
+#custom-mediaplayer-rewind {
+  font-size: 16px;
+  margin-right: 0px;
+  padding-right: 5px;
+  border-right: none;
+  color: #fab387;
+}
+
+/* Color logic for battery */
+#custom-battery.low {
+  border-left: 2px solid #bf616a;
+  border-right: 2px solid #bf616a;
+  color: #bf616a;
+}
+#custom-battery.medium {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  color: #fab387;
+}
+#custom-battery.high {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  color: #fab387;
+}
+
+/* Color logic for volume */
+#custom-volume.low {
+  border-left: 2px solid #bf616a;
+  border-right: 2px solid #bf616a;
+  color: #bf616a;
+}
+#custom-volume.medium {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  color: #fab387;
+}
+#custom-volume.high {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  color: #fab387;
+}
+
+/* Color logic for brightness */
+#custom-brightness.low {
+  border-left: 2px solid #bf616a;
+  border-right: 2px solid #bf616a;
+  color: #bf616a;
+}
+#custom-brightness.medium {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  color: #fab387;
+}
+#custom-brightness.high {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  color: #fab387;
+}
+
+#power-profiles-daemon {
+  background-color: #292d35;
+  color: #fab387;
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  padding: 6px 14px 6px 6px;
+  margin: 5px 5px;
+  border-radius: 3px;
+}
+
+#bluetooth:hover,
+#clock:hover,
+#custom-mediaplayer:hover,
+#custom-mediaplayer-fwd:hover,
+#custom-mediaplayer-rewind:hover,
+#network:hover,
+#custom-profile:hover,
+#custom-battery:hover,
+#custom-power:hover,
+#custom-volume:hover,
+#custom-brightness:hover,
+#custom-keyboard-light:hover,
+#custom-notification:hover,
+#power-profiles-daemon:hover {
+  background-color: #454b56;
+  transition: color 0.3s ease;
+}
+
+menu {
+	color: white;
+  background-color: #454b56;
+}
+
+menuitem {
+  border-left: 2px solid #fab387;
+  border-right: 2px solid #fab387;
+  background-color: #454b56;
+}
+
+menuitem:hover {
+  background-color: #292d35;
+  transition: background-color 0.3s ease;
+}

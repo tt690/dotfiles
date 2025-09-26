@@ -1,0 +1,103 @@
+/* ── Rofi Theme ──────────────────────────────
+   °˖* ૮(  • ᴗ ｡)っ🍸  pewdiepie/archdaemon/dionysh
+   shhheersh
+   Vers 1.0
+   Description: Custom styling for Rofi launcher 
+   ─────────────────────────────────────────── */
+
+/* Global defaults */
+* {
+  font: "JetBrainsMono Nerd Font 11";
+  blur: true;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 0px;  // remove default rounding globally
+}
+
+/* ── Window ──────────────────────────────── */
+window {
+  width: 250px;
+  height: 500px;
+  location: center;
+  blur: true;
+  border: 4px;
+  border-radius: 15px;
+  border-color: #fab387;
+  padding: 3px;
+}
+
+/* ── Layout ──────────────────────────────── */
+mainbox {
+  orientation: horizontal;
+  children: [ "borderbox" ];
+  spacing: 0px;
+  padding: 0px;
+}
+
+borderbox {
+  orientation: horizontal;
+  children: ["contentbox" ];
+  padding: 0px;
+  spacing: 0px;
+  border-radius: 3px;
+}
+
+contentbox {
+  orientation: vertical;
+  children: [ "entry", "listview" ];
+  spacing: 0px;
+  padding: 0px;
+  expand: true;
+}
+
+/* ── Elements ────────────────────────────── */
+element {
+  border-radius: 8px;
+  padding: 20px 10px;
+  text-align: center;
+  orientation: vertical;        // Stack icon and text vertically
+  children: ["element-text" ]; // Ensure icon is above text
+}
+
+element-text {
+  font-size: 18px;     
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  margin: 0;
+  padding: 4px 0 0 0;
+  spacing: 0;
+  text-color: #fab387ff;
+}
+
+element selected {
+  background-color: #8eacc896;
+  text-color: #e5c07b;
+  border-radius: 8px;
+}
+
+/* ── Input & Prompt ──────────────────────── */
+prompt {
+  enabled: false;
+  background-color: transparent;
+  text-color: #fab387;
+  padding: 5px 10px;
+}
+
+entry {
+  padding: 10px;
+  expand: false;
+  font: "JetBrainsMono Nerd Font 16";
+  text-color: #fab387;
+  border-radius: 0px 3px 0px 0px;
+  background-color: #292e36;  // input field
+}
+
+/* ── Listview ────────────────────────────── */
+listview {
+  lines: 3;           // Number of rows
+  columns: 6;         // Number of columns (adjust as needed)
+  background-color: rgba(46, 52, 64, 0.8);
+  border-radius: 0px 0px 3px 0px;
+  padding: 5px;
+  spacing: 20px;      // Space between icons
+}

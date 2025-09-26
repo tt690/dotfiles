@@ -1,0 +1,238 @@
+{
+  "layer": "top",
+  "position": "top",
+  "output": "eDP-1",
+  "visible-on-fullscreen": false,
+
+  "modules-left": [
+    "clock",
+    "bluetooth",
+    "custom/volume",
+    "custom/brightness"
+  ],
+  "modules-center": [
+    "custom/workspace-1",
+    "custom/workspace-2",
+    "custom/workspace-3",
+    "custom/workspace-4",
+    "custom/workspace-5",
+    "custom/workspace-6",
+    "custom/workspace-7",
+    "custom/workspace-8",
+    "custom/workspace-9"
+  ],
+  "modules-right": [
+    "power-profiles-daemon",
+    "custom/battery",
+    "custom/keyboard-light",
+    "network",
+    "custom/notification",
+    "custom/power"
+  ],
+
+  "clock": {
+    "interval": 60,
+    "format": " {:%H:%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%Y-%m-%d}",
+    "on-click": "gnome-calendar"
+  },
+
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+    "format-ethernet": "󰀂 ",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "nm-connection-editor",
+    "interval": 5,
+    "nospacing": 1
+  },
+
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "",
+      "disabled": "󰂲"
+    },
+    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "tooltip-format": "Bluetooth is {status}",
+    "interval": 5
+  },
+
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery.sh",
+    "return-type": "json",
+    "interval": 10,
+    "on-click": "alacritty -e bash -c 'sudo powertop'"
+  },
+  
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": {
+      "charging": [
+        "󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"
+      ],
+      "default": [
+        "󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
+      ]
+    },
+    "format-full": "Charged ",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip": true
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#fab387'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#fab387'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#fab387'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#fab387'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/volume": {
+    "exec": "~/.config/waybar/scripts/volume.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  "custom/brightness": {
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "~/.config/waybar/scripts/brightness-toggle.sh",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "custom/mediaplayer": {
+    "exec": "~/.config/waybar/scripts/mediaplayer.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/mediaplayer-toggle.sh"
+  },
+
+  "custom/mediaplayer-fwd": {
+    "format": "⏭",
+    "on-click": "playerctl next",
+    "class": "{class}"
+  },
+
+  "custom/mediaplayer-rewind": {
+    "format": "⏮",
+    "on-click": "playerctl previous",
+    "class": "{class}"
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": true,
+    "tooltip-format": "Power Menu",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": true,
+    "tooltip-format": "Power profile: {profile}",
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "custom/keyboard-light": {
+    "interval": 2,
+    "tooltip": false,
+    "exec": "~/.config/waybar/scripts/keyboard-light.sh",
+    "on-click": "~/.config/waybar/scripts/keyboard-light-toggle.sh"
+  },
+
+  "custom/workspace-1": {
+    "exec": "~/.config/hypr/workspaces/workspace1.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 1",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 1"
+  },
+  "custom/workspace-2": {
+    "exec": "~/.config/hypr/workspaces/workspace2.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 2",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 2"
+  },
+  "custom/workspace-3": {
+    "exec": "~/.config/hypr/workspaces/workspace3.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 3",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 3"
+  },
+  "custom/workspace-4": {
+    "exec": "~/.config/hypr/workspaces/workspace4.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 4",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 4"
+  },
+  "custom/workspace-5": {
+    "exec": "~/.config/hypr/workspaces/workspace5.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 5",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 5"
+  },
+  "custom/workspace-6": {
+    "exec": "~/.config/hypr/workspaces/workspace6.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 6",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 6"
+  },
+  "custom/workspace-7": {
+    "exec": "~/.config/hypr/workspaces/workspace7.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 7",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 7"
+  },
+  "custom/workspace-8": {
+    "exec": "~/.config/hypr/workspaces/workspace8.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 8",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 8"
+  },
+  "custom/workspace-9": {
+    "exec": "~/.config/hypr/workspaces/workspace9.sh",
+    "interval": 1,
+    "on-click": "hyprctl dispatch workspace 9",
+    "tooltip": true,
+    "tooltip-format": "Switch to workspace 9"
+  }
+}
