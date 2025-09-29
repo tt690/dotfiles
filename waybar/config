@@ -1,5 +1,4 @@
 {
-  "layer": "top",
   "position": "top",
   "output": "eDP-1",
   "visible-on-fullscreen": false,

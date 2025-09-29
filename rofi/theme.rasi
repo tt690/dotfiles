@@ -16,38 +16,53 @@
 
 /* ── Window ──────────────────────────────── */
 window {
-  width: 1050px;
-  height: 725px;
-  location: center;
-  blur: true;
-  border: 4px;
-  border-radius: 15px;
-  border-color: #fab387;
-  padding: 3px;
+  fullscreen: true;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
 }
 
 /* ── Layout ──────────────────────────────── */
 mainbox {
-  orientation: horizontal;
+  position: center;
+  orientation: vertical;
   children: [ "borderbox" ];
   spacing: 0px;
   padding: 0px;
+  expand: true;          /* fill screen */
+  halign: center;        /* horizontal center */
+  valign: center;        /* vertical center */
+  margin: 400px 655px 300px 655px;
 }
 
 borderbox {
   orientation: horizontal;
-  children: ["contentbox" ];
+  children: [ "contentbox" ];
   padding: 0px;
   spacing: 0px;
-  border-radius: 3px;
+  expand: false;         /* don’t stretch, just hold contentbox */
+  halign: center;
+  valign: center;
 }
 
 contentbox {
+  width: 1250px;
+  height: 725px;
   orientation: vertical;
   children: [ "entry", "listview" ];
   spacing: 0px;
   padding: 0px;
-  expand: true;
+  expand: false;         /* fixed size */
+  background-color: rgba(46,52,64,1.0);
+  border-radius: 12px;
+  border: 2px;
+  border-color: #222;
+}
+
+/* Make sure children don't force the contentbox to expand */
+entry {
+  expand: false;
 }
 
 /* ── Elements ────────────────────────────── */
@@ -90,6 +105,7 @@ prompt {
 }
 
 entry {
+  placeholder: "Search for apps";
   padding: 10px;
   expand: false;
   font: "JetBrainsMono Nerd Font 16";
@@ -100,10 +116,11 @@ entry {
 
 /* ── Listview ────────────────────────────── */
 listview {
-  lines: 3;           // Number of rows
-  columns: 6;         // Number of columns (adjust as needed)
+  lines: 4;           // Number of rows
+  columns: 5;         // Number of columns (adjust as needed)
   background-color: rgba(46, 52, 64, 0.8);
   border-radius: 0px 0px 3px 0px;
   padding: 5px;
   spacing: 20px;      // Space between icons
+  expand: false;      // prevent the list from filling the remaining height
 }
